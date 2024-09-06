@@ -32,19 +32,28 @@ int: the chair number of the prisoner to warn
 def saveThePrisoner(n, m, s):
     # Write your code here
     """
-    
+    INPUT: Int n, Int m, Int s
+            n - Number of total Prisoners
+            m - Total number of candies
+            s - Starting position of distribution
+    RETURN: Int pos
+            Position of prisoner who get's the last candy
     """
-    # no. of prisoner = n
-    # no. of sweets = m
-    # starting pos = s
-
-    rem = m % n  # no. of sweets remaining after x complete rounds od distribution
-    print(rem)
-    end = s + rem - 1 # as the starting prisoner got a candy
-    print(end)
-    if end > n:
-        end = end - n
-        print("if cond. ", end)
-    return end
-# failed 7 test cases
+    
+    
+    if (s + m - 1) % n != 0:
+        return (s + m - 1) % n
+    else:
+        return n
+    """
+    
+    pos = 0
+    for i in range(m):
+        pos = (s + i) % n
+    if pos != 0:
+        return pos
+    else:
+        return n
+        
+    """
 
